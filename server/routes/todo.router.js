@@ -41,4 +41,31 @@ router.post('/', (req, res) => {
         });    
 });
 
+// PUT
+router.put('/:id', (req, res) => {
+    // Obtain the req body and id
+    const { task_name, due_date, priority, task_group } = req.body;
+    let taskID = req.params.id;
+    
+
+    // Make DB Query
+    const dbQuery = `
+        UPDATE tasks
+        SET task_name = $1, due_date = $2, priority = $3, task_group = $4
+        WHERE id = $5;
+    `;
+
+    // Manage DB Connections
+    pool
+        .query(dbQuery, [task_name, due_date, priority, task_group, taskID])
+        .then((result) => {
+            res.status(200).send("Task updated sucessfully");
+        })
+        .catch((err) => {
+            console.error('Error updating task:', err);
+            res.status(500).send("Error Updating the task");
+        });   
+});
+
+
 module.exports = router;
