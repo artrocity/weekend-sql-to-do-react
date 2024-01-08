@@ -67,5 +67,24 @@ router.put('/:id', (req, res) => {
         });   
 });
 
+// DELETE
+router.delete('/:id', (req, res) => {
+    // Obtain ID
+    const deleteID = req.params.id;
+
+    // Make DB Query
+    const dbQuery = 'DELETE FROM tasks WHERE id = $1;';
+
+    // Manage DB Connections
+    pool
+        .query(dbQuery, [deleteID])
+        .then((result) => {
+            res.status(200).send("Task deleted sucessfully");
+        })
+        .catch((err) => {
+            console.error('Error deleting task:', err);
+            res.status(500).send("Error deleting the task");
+        });   
+});
 
 module.exports = router;
