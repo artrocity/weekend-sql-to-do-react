@@ -31,12 +31,12 @@ router.post('/', (req, res) => {
     
     // Manage connections
     pool
-        .query(dbQuery, [task_name, due_date, priority, task_group, taskID])
+        .query(dbQuery, [task_name, due_date, priority, task_group])
         .then((result) => {
             res.status(201).send("New Task was added to the database.");
         })
         .catch((err) => {
-            console.err("Error adding the task to the database: ", err);
+            console.error("Error adding the task to the database: ", err);
             res.status(400).send("Unable add the task to the database.");
         });    
 });
