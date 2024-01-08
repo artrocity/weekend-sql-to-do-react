@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
             res.send(result.rows);
         })
         .catch((err) => {
-            console.err("Error fetching data from tasks database: ", err);
+            console.error("Error fetching data from tasks database: ", err);
             res.status(500).send("Unable to fetch the data from the task database");
         });    
 });
