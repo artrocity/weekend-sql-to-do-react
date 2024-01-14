@@ -1,6 +1,6 @@
 // Import Modules
 import React from 'react';
-import TaskCard from './TaskCard';
+import TaskCard from '../TaskCard/TaskCard';
 
 // Function to 
 function TaskList() {
@@ -8,6 +8,7 @@ function TaskList() {
 
     return (
         <div className="task-list">
+            <p>Filler Info for now</p>
         </div>
     );
 }

@@ -1,9 +1,10 @@
+// Import Modules
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './Navbar';
-import TaskList from './TaskList';
-import ThemeToggle from './ThemeToggle';
+import Navbar from '../Navbar/Navbar';
+import TaskList from '../TaskList/TaskList';
 
+// Create Main App Root to be used in index.jsx
 function App() {
   const [theme, setTheme] = useState('dark'); // 'light' or 'dark'
 
@@ -13,11 +14,19 @@ function App() {
 
     return (
         <div className={`App ${theme}`}>
-        <Navbar />
-        <ThemeToggle toggleTheme={toggleTheme} />
-        <TaskList />
+            <div className='app-container'>
+                <div className='nav-bar-section'>
+                    <Navbar />
+                </div>
+                <div className='task-list-section'>
+                    <TaskList />
+                </div>
+                
+            </div>
         </div>
+
     );
 }
 
+// Export App
 export default App;
