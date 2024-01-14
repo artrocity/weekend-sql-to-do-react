@@ -23,15 +23,15 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req, res) => {
     // Obtain the req body
-    const { task_name, due_date, priority, task_group } = req.body;
+    const { task_name, due_date, priority, task_group, description } = req.body;
 
     // Make DB Query
-    const dbQuery = `INSERT INTO tasks (task_name, due_date, priority, task_group)
-    VALUES($1, $2, $3, $4);`;
+    const dbQuery = `INSERT INTO tasks (task_name, due_date, priority, task_group, description)
+    VALUES($1, $2, $3, $4, $5);`;
     
     // Manage connections
     pool
-        .query(dbQuery, [task_name, due_date, priority, task_group])
+        .query(dbQuery, [task_name, due_date, priority, task_group, description])
         .then((result) => {
             res.status(201).send("New Task was added to the database.");
         })
@@ -44,15 +44,15 @@ router.post('/', (req, res) => {
 // PUT
 router.put('/:id', (req, res) => {
     // Obtain the req body and id
-    const { task_name, due_date, priority, task_group } = req.body;
+    const { task_name, due_date, priority, task_group, description } = req.body;
     let taskID = req.params.id;
     
 
     // Make DB Query
     const dbQuery = `
         UPDATE tasks
-        SET task_name = $1, due_date = $2, priority = $3, task_group = $4
-        WHERE id = $5;
+        SET task_name = $1, due_date = $2, priority = $3, task_group = $4, description = $5
+        WHERE id = $6;
     `;
 
     // Manage DB Connections
