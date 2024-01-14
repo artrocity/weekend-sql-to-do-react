@@ -5,10 +5,7 @@ import './Navbar.css';
 // Function to create the sidenavbar
 function Navbar({ toggleTheme }) {
     return (
-        <div className="navbar-container">
-            <button onClick={toggleTheme} className="btn btn-secondary mb-3">
-                Toggle Theme
-            </button>
+        <div className="navbar-container bg-dark">
             <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{ width: '280px' }}>
                 <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <span className="fs-4">Volk Task Tracker</span>
@@ -43,6 +40,9 @@ function Navbar({ toggleTheme }) {
                 </ul>
                 <hr />
             </div>
+            <button onClick={toggleTheme} className="btn btn-dark mb-3">
+                Toggle Theme
+            </button>
         </div>
     );
 }
