@@ -7,7 +7,7 @@ function TaskList() {
   // Fetch All Current Tasks from database
 
     return (
-        <div className="task-list">
+        <div>
             <p>Filler Info for now</p>
         </div>
     );
