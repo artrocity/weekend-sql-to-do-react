@@ -35,9 +35,9 @@ html, body {
   flex-shrink: 0; 
 }
 
-.task-list-section {
+.right-section {
   flex-grow: 1; 
-  max-width: 100vw;
+  max-width: 100%;
   overflow-y: auto;
 }
 

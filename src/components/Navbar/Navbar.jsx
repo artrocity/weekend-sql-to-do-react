@@ -3,7 +3,7 @@ import React from 'react';
 import './Navbar.css';
 
 // Function to create the sidenavbar
-function Navbar({ toggleTheme }) {
+function Navbar({ onThemeClick, onAddTaskClick, onHomeClick }) {
     return (
         <div className="navbar-container bg-dark">
             <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{ width: '280px' }}>
@@ -13,13 +13,13 @@ function Navbar({ toggleTheme }) {
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
                     <li className="nav-item">
-                        <a href="#" className="nav-link active" aria-current="page">
+                        <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); onHomeClick(); }}>
                         Home
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a href="#" className="nav-link" aria-current="page">
-                        Add a Task
+                        <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); onAddTaskClick(); }}>
+                        Add Task
                         </a>
                     </li>
                     <li className="nav-item">
@@ -40,7 +40,7 @@ function Navbar({ toggleTheme }) {
                 </ul>
                 <hr />
             </div>
-            <button onClick={toggleTheme} className="btn btn-dark mb-3">
+            <button className="btn btn-dark mb-3">
                 Toggle Theme
             </button>
         </div>
