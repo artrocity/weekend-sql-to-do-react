@@ -1,9 +1,16 @@
 // Import modules
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 
 // Function to create the sidenavbar
 function Navbar({ onThemeClick, onAddTaskClick, onHomeClick }) {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearchQuery = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+
     return (
         <div className="navbar-container bg-dark">
             <div className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style={{ width: '280px' }}>
@@ -38,6 +45,17 @@ function Navbar({ onThemeClick, onAddTaskClick, onHomeClick }) {
                         </a>
                     </li>
                 </ul>
+                <hr />
+                <form className="d-flex" onSubmit={handleSearchQuery}>
+                    <input 
+                    className="form-control me-2" 
+                    type="search" 
+                    placeholder="Search for tasks..." 
+                    aria-label="Search"
+                    value={searchQuery}
+                    onChange={handleSearchQuery}
+                    />
+                </form>
                 <hr />
             </div>
             <button className="btn btn-dark mb-3">
