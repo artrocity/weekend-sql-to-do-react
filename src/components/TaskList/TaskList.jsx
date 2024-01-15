@@ -1,14 +1,26 @@
 // Import Modules
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 import TaskCard from '../TaskCard/TaskCard';
+import { fetchTasks } from '../../Service/apiService';
+import './TaskList.css'
 
-// Function to 
+// Function to Render the Current Tasks on the UI
 function TaskList() {
-  // Fetch All Current Tasks from database
+    const [tasks, setTasks] = useState([]);
+
+    useEffect(() => {
+        fetchTasks()
+        .then(fetchTasks => {
+            setTasks(fetchTasks);
+        });
+    }, [])
+
 
     return (
-        <div>
-            <p>Filler Info for now</p>
+        <div className="card-container">
+            {tasks.map(task => (
+                <TaskCard key={task.id} task={task} />
+            ))}
         </div>
     );
 }
