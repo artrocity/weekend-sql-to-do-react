@@ -15,3 +15,8 @@ export const fetchTasks = () => {
             return [];
         });
 };
+
+// POST ROUTE
+export const addTask = (newTask) => {
+    return axios.post(`${API_BASE_URL}/todo`, newTask);
+};

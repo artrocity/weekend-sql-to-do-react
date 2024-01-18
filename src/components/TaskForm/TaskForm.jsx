@@ -1,17 +1,45 @@
 import React, { useState } from 'react';
 import './TaskForm.css';
+import { addTask, fetchTasks } from '../../Service/apiService';
 
 function TaskForm() {
-    const [taskName, setTaskName] = useState('');
-    const [dueDate, setDueDate] = useState('');
-    const [priority, setPriority] = useState('');
-    const [taskGroup, setTaskGroup] = useState('');
-    const [taskDescription, setTaskDescription] = useState('');
+    const [taskName, setTaskName] = useState("");
+    const [dueDate, setDueDate] = useState("");
+    const [priority, setPriority] = useState("");
+    const [taskGroup, setTaskGroup] = useState("");
+    const [taskDescription, setTaskDescription] = useState("");
 
+    // Add logic to handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Add logic to handle form submission
+        taskName ? addNewTask() : alert("Please add a task name!")
     };
+
+    // Axios call to add new task
+    const addNewTask = () => {
+        let newTask = {
+            task_name: taskName, 
+            due_date: dueDate, 
+            priority: priority, 
+            task_group: taskGroup, 
+            description: taskDescription
+        };
+
+        addTask(newTask)
+            .then(() => {
+                fetchTasks()
+                alert("Task Added Sucessfully")
+                
+                setTaskName("");
+                setDueDate("");
+                setPriority("");
+                setTaskGroup("");
+                setTaskDescription("");
+            })
+            .catch((error) => {
+                console.error("Error adding a new task via POST: ", error);
+            });
+    }
 
     // Text Area Max Characters - Coincides with VARCHAR on DB
     const maxChars = 200;
