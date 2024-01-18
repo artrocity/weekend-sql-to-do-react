@@ -20,3 +20,8 @@ export const fetchTasks = () => {
 export const addTask = (newTask) => {
     return axios.post(`${API_BASE_URL}/todo`, newTask);
 };
+
+// DELETE ROUTE
+export const deleteTask = (taskID) => {
+    return axios.delete(`${API_BASE_URL}/todo/${taskID}`);
+}

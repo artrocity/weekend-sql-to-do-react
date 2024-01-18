@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import './TaskCard.css';
 import { format, parseISO } from 'date-fns';
+import { fetchTasks, deleteTask } from '../../Service/apiService';
 
 // Function to display tasks on a task card
-function TaskCard({ task }) {
+function TaskCard({ task, onTaskDeleted }) {
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpanded = () => {
@@ -14,7 +15,23 @@ function TaskCard({ task }) {
     // Format the Date Of Each Task
     const formattedDate = task.due_date ? format(parseISO(task.due_date), 'MMMM d, yyyy') : 'No date available for this task';
 
-    // Logic for the radio button to make a put request to mark as complete
+    // Logic for the radio button to mark as complete
+
+
+    // Logic for the delete button to make a delete request
+    const deleteCurrentTask = () => {
+        if (task.id) {
+            deleteTask(task.id)
+                .then(() => {
+                    onTaskDeleted()
+                })
+                .catch((error) => {
+                    console.error("Error Deleting a task VIA DELETE: ", error);
+                })
+        } else {
+            alert("No Associated Task ID - Unable To Delete Task");
+        }
+    }
 
     return (
         <div className="card">
@@ -57,8 +74,15 @@ function TaskCard({ task }) {
                     <hr />
                     {/* Card Buttons */}
                     <div className="card-buttons">
-                        <button className="btn btn-primary">Edit</button>
-                        <button className="btn btn-danger">Delete</button>
+                        <button 
+                            className="btn btn-primary" 
+                            type="submit" 
+                        >Edit</button>
+                        <button 
+                            className="btn btn-danger"
+                            type="submit"
+                            onClick={deleteCurrentTask}
+                        >Delete</button>
                     </div>
                 </div>
             )}

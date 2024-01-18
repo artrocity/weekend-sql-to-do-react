@@ -9,11 +9,15 @@ import todo_img from './assets/todo_img.avif';
 function TaskList() {
     const [tasks, setTasks] = useState([]);
 
-    useEffect(() => {
+    const refreshTaskList = () => {
         fetchTasks()
         .then(fetchTasks => {
             setTasks(fetchTasks);
         });
+    }
+
+    useEffect(() => {
+        refreshTaskList();
     }, [])
 
 
@@ -23,7 +27,7 @@ function TaskList() {
             {/* If tasks display the current tasks : Else Display Image*/}
             {tasks.length > 0 ? (
                 tasks.map(task => (
-                    <TaskCard key={task.id} task={task} />
+                    <TaskCard key={task.id} task={task} onTaskDeleted={refreshTaskList}/>
                 ))
             ) : (
                 <div className="empty-list">
