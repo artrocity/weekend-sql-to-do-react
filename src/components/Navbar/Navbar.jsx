@@ -53,9 +53,6 @@ function Navbar({ onThemeClick, onAddTaskClick, onHomeClick }) {
                 </form>
                 <hr />
             </div>
-            <button className="btn btn-dark mb-3">
-                Toggle Theme
-            </button>
         </div>
     );
 }

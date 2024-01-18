@@ -32,7 +32,9 @@ function TaskList() {
             ) : (
                 <div className="empty-list">
                     <h2>Create a Task To Get Started</h2>
-                    <img src={todo_img} alt="No tasks" className="task-img"/>
+                    <div className="image-container">
+                        <img src={todo_img} alt="No tasks" className="task-img"/>
+                    </div>
                 </div>
             )}
         </div>
