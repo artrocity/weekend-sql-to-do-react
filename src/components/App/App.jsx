@@ -5,6 +5,7 @@ import Navbar from '../Navbar/Navbar';
 import TaskList from '../TaskList/TaskList';
 import TaskForm from '../TaskForm/TaskForm';
 import './App.css';
+import overlay_img from './assets/overlay.jpg';
 
 // Create Main App Root to be used in index.jsx
 function App() {
@@ -31,7 +32,7 @@ function App() {
         <div className="app-container">
             {showOverlay && (
                 <div className="overlay">
-                    <img src='./assets/overlay.jpg' alt='overlay image' />
+                    <img src={overlay_img} alt='overlay image' />
                     <button 
                         onClick={() => setShowOverlay(false)}
                         class="btn btn-secondary"
