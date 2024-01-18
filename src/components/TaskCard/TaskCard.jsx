@@ -1,6 +1,7 @@
 // Import Modules
 import React, { useState } from 'react';
 import './TaskCard.css';
+import { format, parseISO } from 'date-fns';
 
 // Function to display tasks on a task card
 function TaskCard({ task }) {
@@ -9,6 +10,9 @@ function TaskCard({ task }) {
     const toggleExpanded = () => {
         setExpanded(!expanded);
     };
+
+    // Format the Date Of Each Task
+    const formattedDate = task.due_date ? format(parseISO(task.due_date), 'MMMM d, yyyy') : 'No date available for this task';
 
     // Logic for the radio button to make a put request to mark as complete
 
@@ -32,22 +36,22 @@ function TaskCard({ task }) {
                 <div className="card-body">
                     {/* Card Details */}
                     <div className="task-info-container">
-                        <h4>Due Date</h4>
-                        <p className="card-text">{task.due_date}</p>
+                        <h5>Due Date</h5>
+                        <p className="card-text">{formattedDate}</p>
                     </div>
                     <hr />
                     <div className="task-info-container">
-                        <h4>Priority Level</h4>
+                        <h5>Priority Level</h5>
                         <p className="card-text">{task.priority}</p>
                     </div>
                     <hr />
                     <div className="task-info-container"> 
-                        <h4>Task Group</h4>
+                        <h5>Task Group</h5>
                         <p className="card-text">{task.task_group}</p>
                     </div>
                     <hr />
                     <div className="task-info-container">
-                        <h4>Description</h4>
+                        <h5>Description</h5>
                         <p className="card-text">{task.description}</p>
                     </div>
                     <hr />
