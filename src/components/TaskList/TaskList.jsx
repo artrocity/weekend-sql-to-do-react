@@ -19,6 +19,8 @@ function TaskList() {
 
     return (
         <div>
+            <h1>Tasks</h1>
+            {/* If tasks display the current tasks : Else Display Image*/}
             {tasks.length > 0 ? (
                 tasks.map(task => (
                     <TaskCard key={task.id} task={task} />
