@@ -1,15 +1,15 @@
 // Import Modules
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '../Navbar/Navbar';
 import TaskList from '../TaskList/TaskList';
 import TaskForm from '../TaskForm/TaskForm';
-import './App.css'
+import './App.css';
 
 // Create Main App Root to be used in index.jsx
 function App() {
-    const [theme, setTheme] = useState('dark');
     const [showForm, setShowForm] = useState(false);
+    const [showOverlay, setShowOverlay] = useState(true);
 
     const handleShowForm = () => {
         setShowForm(true);
@@ -19,14 +19,27 @@ function App() {
         setShowForm(false);
     };
 
-    const handleToggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    };
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowOverlay(false);
+        }, 10000);
+    
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
-        <div className='app-container'>
-            <div className='nav-bar-section'>
-                <Navbar onAddTaskClick={handleShowForm} onHomeClick={handleShowTasks} onThemeClick={handleToggleTheme}/>
+        <div className="app-container">
+            {showOverlay && (
+                <div className="overlay">
+                    <img src='./assets/overlay.jpg' alt='overlay image' />
+                    <button 
+                        onClick={() => setShowOverlay(false)}
+                        class="btn btn-secondary"
+                    >Get Started</button>
+                </div>
+            )}
+            <div className="nav-bar-section">
+                <Navbar onAddTaskClick={handleShowForm} onHomeClick={handleShowTasks}/>
             </div>
             <div className='right-section'>
                 {showForm ? <TaskForm /> : <TaskList />}
