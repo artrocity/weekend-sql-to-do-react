@@ -31,11 +31,6 @@ function Navbar({ onThemeClick, onAddTaskClick, onHomeClick }) {
                     </li>
                     <li className="nav-item">
                         <a href="#" className="nav-link" aria-current="page">
-                        Edit Tasks
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#" className="nav-link" aria-current="page">
                         About Volk
                         </a>
                     </li>
