@@ -3,4 +3,17 @@
   height: 100vh;
   position: fixed;
   padding-top: 3rem;
+  background-color: #2C3E50;
+}
+
+hr {
+  color: #ECF0F1;
+}
+
+.nav-item a, .nav-header {
+  color: #ECF0F1;
+}
+
+.no-bullet {
+  list-style-type: none;
 }

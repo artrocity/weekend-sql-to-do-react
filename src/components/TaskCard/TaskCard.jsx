@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './TaskCard.css';
 import { format, parseISO } from 'date-fns';
-import { fetchTasks, deleteTask } from '../../Service/apiService';
+import { fetchTasks, deleteTask, updateTask } from '../../Service/apiService';
 
 // Function to display tasks on a task card
 function TaskCard({ task, onTaskDeleted }) {
@@ -34,8 +34,11 @@ function TaskCard({ task, onTaskDeleted }) {
     }
 
     return (
-        <div className="card">
-            <div className="card-header d-flex align-items-center justify-content-between">
+        <div className="card shadow-div">
+            <div 
+                className="card-header d-flex align-items-center justify-content-between"
+                onClick={toggleExpanded}
+            >
                 <div className="d-flex align-items-center">
                     <input 
                         type="radio" 

@@ -1,7 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  background-color: #121212;
+  background-color: white;
 }
 
 .App {
@@ -39,6 +39,8 @@ html, body {
   flex-grow: 1; 
   max-width: 100%;
   overflow-y: auto;
+  background-color: #ECF0F1;
+  color: #333333;
 }
 
 .overlay {
@@ -58,4 +60,8 @@ html, body {
 .overlay img {
   max-width: 100%;
   height: auto;
+}
+
+.shadow-div {
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
 }

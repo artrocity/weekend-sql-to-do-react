@@ -25,7 +25,8 @@
 }
 
 h1, h2 {
-  text-align: center;
+  text-align: left;
   margin-top: 3rem;
-  color: #0B58CA;
+  margin-left: 5%;
+  color: black;
 }

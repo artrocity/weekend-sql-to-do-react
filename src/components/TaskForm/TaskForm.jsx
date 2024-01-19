@@ -52,7 +52,7 @@ function TaskForm() {
                     <label htmlFor="taskName" className="form-label">Task Name</label>
                     <input 
                         type="text" 
-                        className="form-control" 
+                        className="form-control shadow-div" 
                         id="taskName" 
                         value={taskName}
                         onChange={(e) => setTaskName(e.target.value)} 
@@ -62,7 +62,7 @@ function TaskForm() {
                     <label htmlFor="taskDueDate" className="form-label">Task Due Date</label>
                     <input 
                         type="date" 
-                        className="form-control" 
+                        className="form-control shadow-div" 
                         id="taskDueDate" 
                         value={dueDate}
                         onChange={(e) => setDueDate(e.target.value)} 
@@ -71,7 +71,7 @@ function TaskForm() {
                 <div className="mb-3">
                     <label htmlFor="taskPriority" className="form-label">Task Priority</label>
                     <select 
-                        className="form-control" 
+                        className="form-control shadow-div" 
                         id="taskPriority" 
                         value={priority}
                         onChange={(e) => setPriority(e.target.value)}
@@ -86,7 +86,7 @@ function TaskForm() {
                     <label htmlFor="taskGroup" className="form-label">Task Group</label>
                     <input 
                         type="text" 
-                        className="form-control" 
+                        className="form-control shadow-div" 
                         id="taskGroup" 
                         value={taskGroup}
                         onChange={(e) => setTaskGroup(e.target.value)} 
@@ -96,7 +96,7 @@ function TaskForm() {
                     <label htmlFor="taskDescription" className="form-label">Task Description</label>
                     <textarea
                         id="taskDescription"
-                        className="form-control"
+                        className="form-control shadow-div"
                         value={taskDescription}
                         onChange={(e) => setTaskDescription(e.target.value)}
                         rows="4" 
