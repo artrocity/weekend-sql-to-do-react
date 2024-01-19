@@ -41,6 +41,7 @@ function TaskCard({ task, onTaskDeleted }) {
         updateTask(editedTask.id, editedTask)
             .then(() => {
                 setIsEditMode(false)
+                onTaskDeleted()
             })
             .catch(error => {
                 console.error("Error Updating Task");
