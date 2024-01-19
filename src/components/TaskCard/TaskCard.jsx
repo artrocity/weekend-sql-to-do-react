@@ -88,7 +88,7 @@ function TaskCard({ task, onTaskDeleted }) {
                             <button className="btn btn-primary" onClick={handleSaveClick}>Save</button>
                         </div>
                     ) : (
-                        <div>
+                        <div className="card-info">
                             {/* Display non-editable task details */}
                             <h5>Due Date</h5>
                             <p className="card-text">{formattedDate}</p>

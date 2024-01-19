@@ -3,7 +3,7 @@
   height: 100vh;
   position: fixed;
   padding-top: 3rem;
-  background-color: #2C3E50;
+  background-color: #1E1E2F;
 }
 
 hr {
@@ -11,7 +11,7 @@ hr {
 }
 
 .nav-item a, .nav-header {
-  color: #ECF0F1;
+  color: #FF64EF;
 }
 
 .no-bullet {

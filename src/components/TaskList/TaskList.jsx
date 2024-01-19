@@ -25,7 +25,7 @@ function TaskList() {
         <div>
             {/* If tasks display the current tasks : Else Display Image*/}
             {tasks.length > 0 ? (
-                <div>
+                <div className="task-container">
                     <h1>TO DO</h1>
                     {tasks.map(task => (
                         <TaskCard key={task.id} task={task} onTaskDeleted={refreshTaskList}/>

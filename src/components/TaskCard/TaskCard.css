@@ -6,7 +6,12 @@
   max-width: 90%;
   overflow: scroll;
   display: flex;
+  color: #FF64EF;
+  background-color: #32324D;
+}
 
+.card::-webkit-scrollbar {
+  display: none;
 }
 
 .card-body {
@@ -21,4 +26,14 @@ button {
 .add-task-header {
   text-align: center;
   margin-bottom: 30px;
+}
+
+.btn-primary {
+  background-color: #1ABC9C;
+  border-color: #1ABC9C;
+}
+
+.btn-primary:hover {
+  background-color: #16A68B;
+  border-color: #16A68B; 
 }
