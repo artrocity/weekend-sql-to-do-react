@@ -43,8 +43,7 @@ function TaskCard({ task, onTaskDeleted }) {
                     <input 
                         type="radio" 
                         className="mark-complete-checkbox me-2" 
-                        checked={task.completed} 
-                        onChange={() => {/* handle task completion logic */}} 
+                        onChange={() => {deleteCurrentTask}} 
                     />
                     <h4 className="card-title mb-0">{task.task_name}</h4>
                 </div>
