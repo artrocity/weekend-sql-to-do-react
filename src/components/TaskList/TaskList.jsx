@@ -23,15 +23,17 @@ function TaskList() {
 
     return (
         <div>
-            <h1>To Do</h1>
             {/* If tasks display the current tasks : Else Display Image*/}
             {tasks.length > 0 ? (
-                tasks.map(task => (
-                    <TaskCard key={task.id} task={task} onTaskDeleted={refreshTaskList}/>
-                ))
+                <div>
+                    <h1>TO DO</h1>
+                    {tasks.map(task => (
+                        <TaskCard key={task.id} task={task} onTaskDeleted={refreshTaskList}/>
+                    ))}
+                </div>
             ) : (
                 <div className="empty-list">
-                    <h2>Create a Task To Get Started</h2>
+                    <h2 className="add-task-header">Create a Task To Get Started</h2>
                     <div className="image-container">
                         <img src={todo_img} alt="No tasks" className="task-img"/>
                     </div>

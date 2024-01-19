@@ -17,3 +17,8 @@
 button {
   margin: 10px 10px;
 }
+
+.add-task-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
