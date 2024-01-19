@@ -5,7 +5,7 @@ import Navbar from '../Navbar/Navbar';
 import TaskList from '../TaskList/TaskList';
 import TaskForm from '../TaskForm/TaskForm';
 import './App.css';
-import overlay_img from './assets/overlay.jpg';
+import overlay_img from './assets/overlay.png';
 
 // Create Main App Root to be used in index.jsx
 function App() {

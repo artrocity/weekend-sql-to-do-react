@@ -64,8 +64,7 @@ function Navbar({ onThemeClick, onAddTaskClick, onHomeClick }) {
                     />
                 </form>
                 <hr />
-                <p className="nav-header">Filter Tasks By:</p>
-                <p className="nav-header">Date</p>
+                <p className="nav-header">Filter Tasks By Date</p>
                 <ul>
                     <li className="nav-item no-bullet">
                         <a href="#" className="nav-link">
