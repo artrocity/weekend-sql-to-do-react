@@ -25,3 +25,8 @@ export const addTask = (newTask) => {
 export const deleteTask = (taskID) => {
     return axios.delete(`${API_BASE_URL}/todo/${taskID}`);
 }
+
+// PUT ROUTE
+export const updateTask = (taskID, updatedTask) => {
+    return axios.put(`${API_BASE_URL}/todo/${taskID}`, updatedTask);
+}

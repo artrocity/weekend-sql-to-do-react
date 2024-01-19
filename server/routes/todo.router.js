@@ -57,7 +57,7 @@ router.put('/:id', (req, res) => {
 
     // Manage DB Connections
     pool
-        .query(dbQuery, [task_name, due_date, priority, task_group, taskID])
+        .query(dbQuery, [task_name, due_date, priority, task_group, description, taskID])
         .then((result) => {
             res.status(200).send("Task updated sucessfully");
         })
