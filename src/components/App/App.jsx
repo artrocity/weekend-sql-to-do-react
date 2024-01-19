@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '../Navbar/Navbar';
 import TaskList from '../TaskList/TaskList';
 import TaskForm from '../TaskForm/TaskForm';
+import About from '../About/About';
 import './App.css';
 import overlay_img from './assets/overlay.png';
 
@@ -11,14 +12,22 @@ import overlay_img from './assets/overlay.png';
 function App() {
     const [showForm, setShowForm] = useState(false);
     const [showOverlay, setShowOverlay] = useState(true);
+    const [showAbout, setShowAbout] = useState(false);
 
     const handleShowForm = () => {
         setShowForm(true);
+        setShowAbout(false);
     };
 
     const handleShowTasks = () => {
         setShowForm(false);
+        setShowAbout(false);
     };
+
+    const handleShowAbout = () => {
+        setShowAbout(!showAbout);
+        setShowForm(false);
+    }
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -40,14 +49,12 @@ function App() {
                 </div>
             )}
             <div className="nav-bar-section">
-                <Navbar onAddTaskClick={handleShowForm} onHomeClick={handleShowTasks}/>
+                <Navbar onAddTaskClick={handleShowForm} onHomeClick={handleShowTasks} onAboutClick={handleShowAbout}/>
             </div>
             <div className='right-section'>
-                {showForm ? <TaskForm /> : <TaskList />}
+                {showForm ? <TaskForm /> : showAbout ? <About /> : <TaskList />}
             </div>
-            
         </div>
-
     );
 }
 
