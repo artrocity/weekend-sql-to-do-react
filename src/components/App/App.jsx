@@ -44,7 +44,7 @@ function App() {
                     <img src={overlay_img} alt='overlay image' />
                     <button 
                         onClick={() => setShowOverlay(false)}
-                        className="btn btn-secondary"
+                        className="btn btn-primary"
                     >Get Started</button>
                 </div>
             )}
